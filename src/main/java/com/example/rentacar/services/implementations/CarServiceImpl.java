@@ -7,6 +7,7 @@ import com.example.rentacar.requests.CreateOfferRequest;
 import com.example.rentacar.requests.UpdateCarRequest;
 import com.example.rentacar.responses.Response;
 import com.example.rentacar.services.CarService;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -14,8 +15,7 @@ import java.util.Optional;
 
 @Service
 public class CarServiceImpl implements CarService {
-
-    private CarRepository carRepository;
+    private final CarRepository carRepository;
 
     public CarServiceImpl(CarRepository carRepository) {
         this.carRepository = carRepository;
@@ -28,7 +28,7 @@ public class CarServiceImpl implements CarService {
         return new Response<>(
                 cars,
                 true,
-                200,
+                HttpStatus.OK,
                 "Retrieved cars successfully"
         );
     }
@@ -40,7 +40,7 @@ public class CarServiceImpl implements CarService {
         return new Response<>(
                 cars,
                 true,
-                200,
+                HttpStatus.OK,
                 "Retrieved cars successfully"
         );
     }
@@ -52,12 +52,12 @@ public class CarServiceImpl implements CarService {
         return car.map(value -> new Response<>(
                 value,
                 true,
-                200,
+                HttpStatus.OK,
                 "Retrieved car successfully"
         )).orElseGet(() -> new Response<>(
                 null,
                 false,
-                404,
+                HttpStatus.NOT_FOUND,
                 "Car not found"
         ));
     }
@@ -77,7 +77,7 @@ public class CarServiceImpl implements CarService {
         return new Response<>(
                 car,
                 true,
-                201,
+                HttpStatus.CREATED,
                 "Created car successfully"
         );
 
@@ -91,7 +91,7 @@ public class CarServiceImpl implements CarService {
             return new Response<>(
                     null,
                     false,
-                    404,
+                    HttpStatus.NOT_FOUND,
                     "Car not found"
             );
         }
@@ -111,7 +111,7 @@ public class CarServiceImpl implements CarService {
         return new Response<>(
                 car,
                 true,
-                200,
+                HttpStatus.OK,
                 "Updated car successfully"
         );
     }
@@ -124,7 +124,7 @@ public class CarServiceImpl implements CarService {
             return new Response<>(
                     false,
                     false,
-                    404,
+                    HttpStatus.NOT_FOUND,
                     "Car not found"
             );
         }
@@ -134,7 +134,7 @@ public class CarServiceImpl implements CarService {
         return new Response<>(
                 true,
                 true,
-                200,
+                HttpStatus.OK,
                 "Deleted car successfully"
         );
     }

@@ -9,6 +9,7 @@ public class Offer {
     private int id;
     private int days;
     private boolean isAccepted;
+    private double price;
     @ManyToOne
     private Car car;
     @ManyToOne
@@ -28,6 +29,14 @@ public class Offer {
 
     public void setAccepted(boolean accepted) {
         isAccepted = accepted;
+    }
+
+    public double getPrice() {
+        return price;
+    }
+
+    public void setPrice(double price) {
+        this.price = price;
     }
 
     public int getDays() {

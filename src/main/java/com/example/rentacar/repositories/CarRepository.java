@@ -8,4 +8,5 @@ import java.util.Optional;
 
 public interface CarRepository extends JpaRepository<Car, Integer> {
     List<Car> findByAddress(String address);
+    List<Car> findByModel(String model);
 }
