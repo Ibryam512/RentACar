@@ -3,7 +3,6 @@ package com.example.rentacar.services.implementations;
 import com.example.rentacar.entities.Car;
 import com.example.rentacar.repositories.CarRepository;
 import com.example.rentacar.requests.CreateCarRequest;
-import com.example.rentacar.requests.CreateOfferRequest;
 import com.example.rentacar.requests.UpdateCarRequest;
 import com.example.rentacar.responses.Response;
 import com.example.rentacar.services.CarService;
